@@ -1,2 +1,2 @@
 # SMARTFARMAI
-Smart Farm AI is an intelligent agriculture support system that utilizes a CNN-based deep learning model to detect plant diseases from leaf images trained on a curated dataset. The platform provides treatment recommendations, weather and GPS-based insights, voice assistance, and integrates future crop yield prediction capabilities.
+Smart Farm AI is an intelligent agriculture assistance system that uses a CNN-based deep learning model to detect plant diseases from dataset-trained leaf images. The platform provides treatment recommendations, GPS-based location and weather insights, multi-language voice support, and is currently being enhanced with crop yield prediction capabilities.
