@@ -8,4 +8,6 @@ gtts
 scikit-learn
 
 
-pip install -r 
+Install required libraries:  pip install -r requirements.txt
+
+Run the application:  python app.py
