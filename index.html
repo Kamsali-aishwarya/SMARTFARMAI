@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Smart Farm AI</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
+text-align:center;
+color:white;
+}
+
+.card{
+background:white;
+color:black;
+width:90%;
+max-width:800px;
+margin:auto;
+margin-top:30px;
+padding:25px;
+border-radius:15px;
+}
+
+button{
+background:#2e7d32;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+pre{
+background:#f2f2f2;
+padding:20px;
+text-align:left;
+border-radius:10px;
+}
+
+img{
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🌱 Smart Farm Doctor</h1>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="image" required><br><br>
+
+<select name="language">
+{% for code,name in languages.items() %}
+<option value="{{code}}">
+{{name.title()}}
+</option>
+{% endfor %}
+</select>
+
+<input type="hidden" id="lat" name="lat">
+<input type="hidden" id="lon" name="lon">
+
+<br><br>
+
+<button>Analyze Plant</button>
+
+</form>
+
+</div>
+
+{% if result %}
+
+<div class="card">
+
+<img src="/{{image_path}}" width="400"><br><br>
+
+<pre>{{report}}</pre>
+
+<audio controls autoplay>
+<source src="{{url_for('static',filename=audio_file)}}">
+</audio>
+
+</div>
+
+{% endif %}
+
+<script>
+
+navigator.geolocation.getCurrentPosition(
+function(pos){
+document.getElementById("lat").value=pos.coords.latitude;
+document.getElementById("lon").value=pos.coords.longitude;
+},
+function(){
+alert("Please allow location permission");
+}
+);
+
+</script>
+
+</body>
+</html>

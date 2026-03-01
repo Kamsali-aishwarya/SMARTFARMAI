@@ -1,0 +1,11 @@
+flask
+tensorflow
+numpy
+pillow
+requests
+googletrans==4.0.0-rc1
+gtts
+scikit-learn
+
+
+pip install -r 
